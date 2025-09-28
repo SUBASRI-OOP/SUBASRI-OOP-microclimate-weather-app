@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Microclimate Weather App 🌦️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project shows **real-time weather**, stores history in MySQL, displays charts, and suggests crops based on temperature and humidity.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 How to Run
 
-### `npm start`
+### 1️⃣ Clone this repo
+```bash
+git clone https://github.com/your-username/microclimate-weather-app.git
+cd microclimate-weather-app
+2️⃣ Setup MySQL Database
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open MySQL Workbench or phpMyAdmin.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run the SQL commands from the database/weather_data.sql file:
+⚠️ Important: Run these SQL commands before starting the backend.
+If MySQL is not running or tables are missing, the app will not show weather data.
 
-### `npm test`
+3️⃣ Start Backend Server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open terminal in the backend folder:
 
-### `npm run build`
+cd weather-backend
+npm install
+node server.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Confirm backend is running:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Connected to MySQL database.
+Server running on port 3001
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Make sure your .env file is set correctly:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+DB_PASSWORD=root
+DB_NAME=microclimate
+OPENWEATHER_API_KEY=YOUR_API_KEY
+PORT=3001
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4️⃣ Open Frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open weather-frontend/index.html in a browser.
 
-## Learn More
+Enter a city name and click Show Weather.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app will:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fetch weather from OpenWeatherMap
 
-### Code Splitting
+Store data in MySQL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Display last 20 records in a chart
 
-### Analyzing the Bundle Size
+Suggest crops based on temperature & humidity
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Allow downloading a CSV weather report
 
-### Making a Progressive Web App
+5️⃣ Project Structure
+microclimate-weather-app/
+│
+├── weather-frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── weather-backend/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+├── database/
+│   └── weather_data.sql  <-- SQL commands for setup
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+⚠️ Key Notes
 
-### Advanced Configuration
+Always start MySQL first and import SQL before running the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Backend must be running before opening the frontend UI, otherwise weather data will not display.
 
-### Deployment
+Weather data is automatically stored in MySQL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+CSV download is available for the last 20 records.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+If you want, I can also **prepare the `weather_data.sql` file** with all your SQL commands ready to copy into the `database` folder, so anyone can import it in **one step**.  
+
+Do you want me to do that?
